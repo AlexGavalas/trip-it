@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const isDev = import.meta.env.NODE_ENV;
 ---
 
 <!doctype html>
@@ -18,11 +20,15 @@ const { title } = Astro.props;
     </head>
     <body>
         <slot />
-        <script
-            defer
-            src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon='{"token": "107dee4076c3456ab99393d7581433ae"}'
-        ></script>
+        {
+            !isDev && (
+                <script
+                    defer
+                    src="https://static.cloudflareinsights.com/beacon.min.js"
+                    data-cf-beacon='{"token": "107dee4076c3456ab99393d7581433ae"}'
+                />
+            )
+        }
     </body>
 </html>
 <style is:global>
