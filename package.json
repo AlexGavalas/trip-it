@@ -5,13 +5,13 @@
     "scripts": {
         "dev": "astro dev",
         "build": "astro build",
-        "preview": "astro build && wrangler pages dev --d1 DB",
+        "preview": "astro build && wrangler pages dev --d1 trip-it",
         "astro": "astro",
         "deploy": "astro build && wrangler pages deploy",
         "cf-typegen": "wrangler types",
         "db:seed:local": "tsx ./src/db/seed.ts",
-        "db:generate": "LOCAL_DB_PATH=local.sqlite drizzle-kit generate:sqlite",
-        "db:migrate:local": "LOCAL_DB_PATH=local.sqlite drizzle-kit push:sqlite",
+        "db:generate": "drizzle-kit generate:sqlite",
+        "db:migrate:local": "drizzle-kit push:sqlite",
         "db:migrate:preview": "wrangler d1 migrations apply trip-it --local",
         "db:migrate:prod": "wrangler d1 migrations apply trip-it --remote"
     },

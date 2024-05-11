@@ -8,7 +8,11 @@ After cloning, make sure you have the correct tooling versions.
 
 -   Node.js `20.13.0` and npm `10.5.2` at the time of writing. Any Node.js 20.x should work as well.
 
-Then run `npm install` to install the dependencies.
+Then run
+
+1. `npm install` to install the dependencies.
+2. `npm run db:migrate:local` to setup the local `dev` database.
+3. `npm run db:seed:local` to seed the local `dev` database.
 
 ### Environment variables
 
@@ -40,5 +44,14 @@ To add a new migration
 5. If the migrations are applied successfully to the `preview` environment, run `npm run db:migrate:prod` to apply them to the `prod` environment.
 
 ## Deployment
+
+### Preview
+
+To see the app in a local preview environment run
+
+1. `npm run db:migrate:preview`. Run any pending database migrations.
+2. `npm run preview`. This will build the app and start the local Cloudflare worker.
+
+### Production
 
 To manually deploy the app, run `npm run deploy`. After that, the app will be viewable at https://trip-it.pages.dev.
