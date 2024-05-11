@@ -13,6 +13,7 @@ export default defineConfig({
     adapter: cloudflare({
         imageService: 'passthrough',
         platformProxy: {
+            persist: true,
             enabled: true,
         },
     }),

@@ -10,4 +10,11 @@ const db = drizzle(connection);
 await db.delete(trip).execute();
 
 // Seed the tables
-await db.insert(trip).values({ name: 'To the moon' }).execute();
+await db
+    .insert(trip)
+    .values([
+        {
+            name: 'To the moon',
+        },
+    ])
+    .execute();

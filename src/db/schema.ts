@@ -5,4 +5,6 @@ export const trip = sqliteTable('trips', {
         autoIncrement: true,
     }),
     name: text('name').notNull(),
+    startDate: text('start_date'),
+    endDate: text('end_date'),
 });

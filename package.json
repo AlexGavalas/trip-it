@@ -4,16 +4,16 @@
     "version": "0.0.1",
     "scripts": {
         "dev": "astro dev",
-        "start": "astro dev",
-        "build": "astro check && astro build",
-        "preview": "astro build && wrangler pages dev",
+        "build": "astro build",
+        "preview": "astro build && wrangler pages dev --d1 DB",
         "astro": "astro",
         "deploy": "astro build && wrangler pages deploy",
         "cf-typegen": "wrangler types",
         "db:seed:local": "tsx ./src/db/seed.ts",
-        "db:migrate:local": "tsx ./src/db/migrate.ts",
-        "db:migrate:prod": "wrangler d1 migrations apply trip-it --remote",
-        "db:migrate:preview": "wrangler d1 migrations apply trip-it-preview --env preview --remote"
+        "db:generate": "LOCAL_DB_PATH=local.sqlite drizzle-kit generate:sqlite",
+        "db:migrate:local": "LOCAL_DB_PATH=local.sqlite drizzle-kit push:sqlite",
+        "db:migrate:preview": "wrangler d1 migrations apply trip-it --local",
+        "db:migrate:prod": "wrangler d1 migrations apply trip-it --remote"
     },
     "dependencies": {
         "@astrojs/check": "0.5.10",

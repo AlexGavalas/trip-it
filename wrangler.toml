@@ -29,12 +29,6 @@ pages_build_output_dir = "./dist"
 binding = "DB"
 database_name = "trip-it"
 database_id = "354ca0f6-470c-48ce-b6e6-067fa9d7835f"
-preview_database_id = "e6a633c3-f6e5-4e89-aac8-d5990e69f0fb"
-
-[[env.preview.d1_databases]]
-binding = "DB"
-database_name = "trip-it-preview"
-database_id = "e6a633c3-f6e5-4e89-aac8-d5990e69f0fb"
 
 # Bind a Durable Object. Durable objects are a scale-to-zero compute primitive based on the actor model.
 # Durable Objects can live for as long as needed. Use these when you need a long-running "server", such as in realtime apps.
