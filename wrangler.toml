@@ -3,6 +3,7 @@ name = "trip-it"
 compatibility_date = "2024-05-02"
 pages_build_output_dir = "./dist"
 
+
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Pages Function, running it closer to your back-end infrastructure
 # rather than the end user may result in better performance.
@@ -77,8 +78,9 @@ database_id = "354ca0f6-470c-48ce-b6e6-067fa9d7835f"
 
 ######## PRODUCTION environment config ########
 
-# [env.production.vars]
-# API_KEY = "abc123"
+[env.production.vars]
+AUTH_SECRET = "EigQyr0WkdpaDMXlAczh64uGl7dTd6fYYjhOtG7kqdY="
+AUTH_TRUST_HOST = true
 
 # [[env.production.kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"

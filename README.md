@@ -10,6 +10,13 @@ After cloning, make sure you have the correct tooling versions.
 
 Then run `npm install` to install the dependencies.
 
+### Environment variables
+
+-   `AUTH_SECRET`. Used by the auth library, can be generated with `npx auth secret`
+-   `AUTH_TRUST_HOST`. Set to `true` when deploying behind a reverse proxy, e.g. Cloudflare.
+-   `AUTH_GOOGLE_ID`. Get it from the Google credentials configuration.
+-   `AUTH_GOOGLE_SECRET`. Get it from the Google credentials configuration.
+
 ## Development
 
 To start developing, run `npm run dev`.
