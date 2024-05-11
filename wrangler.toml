@@ -80,7 +80,7 @@ database_id = "354ca0f6-470c-48ce-b6e6-067fa9d7835f"
 
 [env.production.vars]
 AUTH_SECRET = "EigQyr0WkdpaDMXlAczh64uGl7dTd6fYYjhOtG7kqdY="
-AUTH_TRUST_HOST = true
+AUTH_TRUST_HOST = "true"
 
 # [[env.production.kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
