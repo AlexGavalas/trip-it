@@ -4,14 +4,16 @@ const { LOCAL_DB_PATH, WRANGLER_CONFIG, DB_NAME = 'trip-it' } = process.env;
 
 export default LOCAL_DB_PATH
     ? ({
-          schema: './src/schema.ts',
+          schema: './src/db/schema.ts',
           driver: 'better-sqlite',
+          out: './migrations',
+          verbose: true,
           dbCredentials: {
               url: LOCAL_DB_PATH,
           },
       } satisfies Config)
     : ({
-          schema: './src/schema.ts',
+          schema: './src/db/schema.ts',
           out: './migrations',
           driver: 'd1',
           dbCredentials: {

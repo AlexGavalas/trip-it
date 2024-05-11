@@ -2,22 +2,13 @@
 import { getSession } from 'auth-astro/server';
 import Layout from '../layouts/Layout.astro';
 
-import { drizzle } from 'drizzle-orm/d1';
-import { trip } from '../schema';
+import { trip } from '../db/schema';
+import { getDb } from '../lib/db';
 
 const session = await getSession(Astro.request);
-const db = drizzle(Astro.locals.runtime.env.DB);
+const db = getDb(Astro.locals.runtime.env.DB);
 
-type Trip = {
-    id: number;
-    name: string;
-};
-
-let trips: Trip[] = [];
-
-if (session?.user?.email) {
-    trips = await db.select().from(trip).all();
-}
+const trips = session?.user?.email ? await db.select().from(trip).all() : [];
 ---
 
 <Layout title="Welcome to Astro.">
@@ -51,10 +42,10 @@ if (session?.user?.email) {
             </defs>
         </svg>
         <h1>Welcome to <span class="text-gradient">Astro</span></h1>
+        <pre>
+            {JSON.stringify(trips, null, 2)}
+        </pre>
     </main>
-    <pre>
-        {JSON.stringify(trips, null, 2)}
-    </pre>
 </Layout>
 
 <style>

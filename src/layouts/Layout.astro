@@ -7,7 +7,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-const isDev = import.meta.env.NODE_ENV;
+const isDev = import.meta.env.NODE_ENV == 'development';
 ---
 
 <!doctype html>
@@ -50,5 +50,27 @@ const isDev = import.meta.env.NODE_ENV;
         font-family: system-ui, sans-serif;
         background: #13151a;
         background-size: 224px;
+    }
+
+    /* CSS reset */
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+        margin: 0;
+        padding: 0;
     }
 </style>

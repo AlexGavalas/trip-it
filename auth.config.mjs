@@ -11,6 +11,7 @@ export default defineConfig({
             async authorize({ email }) {
                 return {
                     id: '1',
+                    name: 'User',
                     email,
                 };
             },

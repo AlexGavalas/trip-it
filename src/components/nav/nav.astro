@@ -2,16 +2,27 @@
 import { getSession } from 'auth-astro/server';
 
 const session = await getSession(Astro.request);
+const username = session?.user?.name;
 ---
 
-<nav>
-    {
-        !session ? (
-            <button id="sign-in">Sign in</button>
-        ) : (
-            <button id="sign-out">Sign out</button>
-        )
-    }
+<nav class="container">
+    <a href="/">Trip It</a>
+    <div class="profile">
+        {
+            username && (
+                <div>
+                    <p>Welcome {username}!</p>
+                </div>
+            )
+        }
+        {
+            !session ? (
+                <button id="sign-in">Sign in</button>
+            ) : (
+                <button id="sign-out">Sign out</button>
+            )
+        }
+    </div>
 </nav>
 
 <script>
@@ -29,8 +40,24 @@ const session = await getSession(Astro.request);
 </script>
 
 <style>
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: 2px solid rgb(var(--accent-light));
+
+        color: white;
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
     button {
-        background: var(--accent);
+        background: transparent;
         color: white;
         border: 1px solid white;
         padding: 0.5rem 1rem;
