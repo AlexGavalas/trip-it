@@ -3,7 +3,7 @@ import Credentials from '@auth/core/providers/credentials';
 import { defineConfig } from 'auth-astro';
 
 export default defineConfig({
-    secret: import.meta.env.AUTH_SECRET,
+    secret: process.env.AUTH_SECRET,
     providers: [
         Credentials({
             credentials: {
