@@ -6,7 +6,7 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
     vite: {
         ssr: {
-            external: ['node:path'],
+            external: ['node:path', 'better-sqlite3'],
         },
     },
     output: 'server',

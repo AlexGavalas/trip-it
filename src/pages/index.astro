@@ -6,7 +6,7 @@ import { trip } from '../db/schema';
 import { getDb } from '../lib/db';
 
 const session = await getSession(Astro.request);
-const db = getDb(Astro.locals.runtime.env.DB);
+const db = await getDb(Astro.locals.runtime.env.DB);
 
 const trips = session?.user?.email ? await db.select().from(trip).all() : [];
 ---
