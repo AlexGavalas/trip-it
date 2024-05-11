@@ -8,6 +8,8 @@ interface Props {
 const { title } = Astro.props;
 
 const isDev = import.meta.env.NODE_ENV == 'development';
+
+const pageTitle = isDev ? `Dev - ${title}` : title;
 ---
 
 <!doctype html>
@@ -16,7 +18,7 @@ const isDev = import.meta.env.NODE_ENV == 'development';
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>{title}</title>
+        <title>{pageTitle}</title>
     </head>
     <body>
         <Nav />
