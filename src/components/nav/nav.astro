@@ -30,6 +30,7 @@ const username = session?.user?.name;
 
     document.getElementById('sign-in')?.addEventListener('click', async () => {
         signIn('credentials', {
+            // @ts-expect-error
             email: 'admin@google.com',
         });
     });

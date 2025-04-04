@@ -16,6 +16,8 @@ Then run
 
 ### Environment variables
 
+Add the following values to a `.env` file.
+
 -   `AUTH_SECRET`. Used by the auth library, can be generated with `npx auth secret`
 -   `AUTH_TRUST_HOST`. Set to `true` when deploying behind a reverse proxy, e.g. Cloudflare.
 -   `AUTH_GOOGLE_ID`. Get it from the Google credentials configuration.

@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import auth from 'auth-astro';
 import cloudflare from '@astrojs/cloudflare';
 
@@ -10,6 +10,21 @@ export default defineConfig({
         },
     },
     output: 'server',
+    experimental: {
+        serializeConfig: true,
+    },
+    env: {
+        schema: {
+            AUTH_SECRET: envField.string({
+                access: 'secret',
+                context: 'server',
+            }),
+            AUTH_TRUST_HOST: envField.boolean({
+                access: 'public',
+                context: 'server',
+            }),
+        },
+    },
     adapter: cloudflare({
         imageService: 'passthrough',
         platformProxy: {
