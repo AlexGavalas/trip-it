@@ -6,7 +6,7 @@ An app to organize your next trip! ✈️
 
 After cloning, make sure you have the correct tooling versions.
 
--   Node.js `20.13.0` and npm `10.5.2` at the time of writing. Any Node.js 20.x should work as well.
+-   Node.js `22.6.0` and npm `10.8.2` at the time of writing. Any Node.js 20.x should work as well.
 
 Then run
 
