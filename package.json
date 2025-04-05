@@ -5,9 +5,10 @@
     "scripts": {
         "dev": "astro dev",
         "build": "astro build",
-        "preview": "astro build && wrangler pages dev --d1 trip-it",
+        "preview": "astro build && wrangler pages dev",
         "astro": "astro",
         "deploy": "astro build && wrangler pages deploy",
+        "clean:install": "rm -rf node_modules package-lock.json .astro .wrangler dist && npm install",
         "cf-typegen": "wrangler types",
         "db:seed:local": "tsx ./src/db/seed.ts",
         "db:generate": "drizzle-kit generate:sqlite",
@@ -25,7 +26,7 @@
         "typescript": "5.8.2"
     },
     "devDependencies": {
-        "@cloudflare/workers-types": "4.20250404.0",
+        "@cloudflare/workers-types": "4.20250405.0",
         "@types/better-sqlite3": "7.6.13",
         "@types/node": "20.12.10",
         "better-sqlite3": "11.9.1",

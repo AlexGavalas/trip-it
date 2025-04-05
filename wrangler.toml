@@ -1,9 +1,0 @@
-#:schema node_modules/wrangler/config-schema.json
-name = "trip-it"
-compatibility_date = "2024-05-02"
-pages_build_output_dir = "./dist"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "trip-it"
-database_id = "354ca0f6-470c-48ce-b6e6-067fa9d7835f"
