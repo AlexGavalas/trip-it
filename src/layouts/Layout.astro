@@ -7,9 +7,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-const isDev = import.meta.env.NODE_ENV == 'development';
-
-const pageTitle = isDev ? `Dev - ${title}` : title;
+const pageTitle = import.meta.env.DEV ? `Dev - ${title}` : title;
 ---
 
 <!doctype html>
@@ -23,16 +21,6 @@ const pageTitle = isDev ? `Dev - ${title}` : title;
     <body>
         <Nav />
         <slot />
-        {
-            !isDev && (
-                <script
-                    data-cf-beacon='{"token": "ccd92eb2521442fba2228badac3cb1f2"}'
-                    defer
-                    is:inline
-                    src="https://static.cloudflareinsights.com/beacon.min.js"
-                />
-            )
-        }
     </body>
 </html>
 
